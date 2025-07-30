@@ -1,0 +1,23 @@
+experiment_name: test_tta_tencrop_resnet18_pt
+seed: [42, 2025, 123]
+device: cuda
+eval_only: true
+tta_strategy: tencrop
+
+model:
+  name: resnet18
+  pretrained: true
+  num_classes: 7
+  checkpoint_dir: checkpoints/resnet18_pretrained  # relative path to pretrained ResNet-18 checkpoints
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # relative path to PACS dataset
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 32
+  num_workers: 4
+
+tta:
+  transforms: ["resize", "tencrop"]
+  fusion: mean_logits_softmax
+  views: 10

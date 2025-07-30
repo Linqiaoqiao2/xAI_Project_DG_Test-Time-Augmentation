@@ -1,0 +1,37 @@
+experiment_name: tent_resnet50
+mode: test_time_adaptation
+
+model:
+  architecture: resnet50
+  pretrained: true
+  checkpoint_path: checkpoints/resnet50_baseline_pretrained  # relative path to domain-specific models
+  num_classes: 7
+
+tta_strategy: none  # no augmentation
+
+adaptation_method: tent
+tent:
+  optimizer: SGD
+  lr: 1e-4
+  momentum: 0.9
+  weight_decay: 0.0
+  steps_per_batch: 1
+  reset_bn_stats: true
+  update_bn_only: true
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # relative path to dataset root
+  domains: ["art_painting", "cartoon", "photo", "sketch"]
+  categories: ['dog', 'elephant', 'giraffe', 'guitar', 'horse', 'house', 'person']
+  batch_size: 1
+  num_workers: 4
+  transforms:
+    type: ResizeAndNormalizeOnly
+
+seeds: [42, 123, 2025]
+
+output:
+  save_dir: results/tent_resnet50  # relative output directory
+  save_json: results/tent_resnet50/metrics.json
+  save_plot: results/tent_resnet50/metrics.png

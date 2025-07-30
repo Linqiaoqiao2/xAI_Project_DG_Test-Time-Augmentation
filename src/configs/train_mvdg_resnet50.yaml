@@ -1,0 +1,41 @@
+experiment_name: train_mvdg_resnet50
+train_aug: mvdg
+seed: [42, 123, 2025]
+device: cuda
+output_dir: results/train_aug/resnet50_mvdg/
+
+model:
+  name: resnet50
+  pretrained: true
+  num_classes: 7
+
+data:
+  dataset: PACS
+  dataset_root: data/kfold
+  source_domains: ["cartoon", "photo", "sketch"]
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 64
+  num_workers: 4
+  val_split: 0.15
+  categories: ['dog', 'elephant', 'giraffe', 'guitar', 'horse', 'house', 'person']
+
+train:
+  epochs: 30
+  outer_optimizer:
+    type: SGD
+    lr: 0.05
+    weight_decay: 5e-4
+    apply_epochs: [0, 23]
+  inner_optimizer:
+    type: Adam
+    lr: 1e-4
+    weight_decay: 5e-4
+    apply_epochs: [24, 29]
+  early_stopping_patience: 5
+
+augmentation:
+  strategy: mvdg
+  transforms: ["random_resized_crop", "horizontal_flip", "color_jitter"]
+
+eval:
+  metric:

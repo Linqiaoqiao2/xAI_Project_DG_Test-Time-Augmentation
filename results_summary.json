@@ -1,0 +1,184 @@
+{
+  "baseline_resnet18_pt": {
+    "art_painting": 75.2,
+    "cartoon": 71.8,
+    "photo": 94.1,
+    "sketch": 59.2,
+    "average": 75.1
+  },
+  "baseline_resnet18_npt": {
+    "art_painting": 33.5,
+    "cartoon": 43.4,
+    "photo": 51.4,
+    "sketch": 32.0,
+    "average": 40.1
+  },
+  "baseline_resnet50_pt": {
+    "art_painting": 84.0,
+    "cartoon": 74.4,
+    "photo": 97.6,
+    "sketch": 70.3,
+    "average": 81.6
+  },
+  "baseline_resnet50_npt": {
+    "art_painting": 27.9,
+    "cartoon": 32.6,
+    "photo": 44.6,
+    "sketch": 30.7,
+    "average": 34.0
+  },
+  "test_tta_custom_resnet18_pt": {
+    "art_painting": 74.4,
+    "cartoon": 72.9,
+    "photo": 94.4,
+    "sketch": 56.8,
+    "average": 74.6
+  },
+  "test_tta_custom_resnet18_npt": {
+    "art_painting": 34.1,
+    "cartoon": 44.1,
+    "photo": 52.1,
+    "sketch": 32.1,
+    "average": 40.6
+  },
+  "test_tta_custom_resnet50_pt": {
+    "art_painting": 83.3,
+    "cartoon": 75.9,
+    "photo": 97.5,
+    "sketch": 72.7,
+    "average": 82.4
+  },
+  "test_tta_custom_resnet50_npt": {
+    "art_painting": 28.0,
+    "cartoon": 32.6,
+    "photo": 45.3,
+    "sketch": 32.4,
+    "average": 34.6
+  },
+  "test_tta_mvdg_resnet18_pt": {
+    "art_painting": 76.2,
+    "cartoon": 71.4,
+    "photo": 94.7,
+    "sketch": 60.9,
+    "average": 75.8
+  },
+  "test_tta_mvdg_resnet18_npt": {
+    "art_painting": 35.7,
+    "cartoon": 44.2,
+    "photo": 52.8,
+    "sketch": 32.7,
+    "average": 41.4
+  },
+  "test_tta_mvdg_resnet50_pt": {
+    "art_painting": 84.9,
+    "cartoon": 74.3,
+    "photo": 97.8,
+    "sketch": 71.6,
+    "average": 82.2
+  },
+  "test_tta_mvdg_resnet50_npt": {
+    "art_painting": 28.9,
+    "cartoon": 32.2,
+    "photo": 45.7,
+    "sketch": 35.0,
+    "average": 35.5
+  },
+  "test_tta_tencrop_resnet18_pt": {
+    "art_painting": 75.6,
+    "cartoon": 69.5,
+    "photo": 94.2,
+    "sketch": 59.5,
+    "average": 74.7
+  },
+  "test_tta_tencrop_resnet18_npt": {
+    "art_painting": 35.0,
+    "cartoon": 42.5,
+    "photo": 51.9,
+    "sketch": 32.5,
+    "average": 40.5
+  },
+  "test_tta_tencrop_resnet50_pt": {
+    "art_painting": 84.1,
+    "cartoon": 73.4,
+    "photo": 97.6,
+    "sketch": 69.8,
+    "average": 81.2
+  },
+  "test_tta_tencrop_resnet50_npt": {
+    "art_painting": 28.2,
+    "cartoon": 30.6,
+    "photo": 46.7,
+    "sketch": 33.0,
+    "average": 34.6
+  },
+  "train_mvdg_resnet18": {
+    "art_painting": 78.3,
+    "cartoon": 77.3,
+    "photo": 94.9,
+    "sketch": 73.3,
+    "average": 81.0
+  },
+  "train_mvdg_resnet50": {
+    "art_painting": 82.3,
+    "cartoon": 81.2,
+    "photo": 95.6,
+    "sketch": 73.5,
+    "average": 83.2
+  },
+  "train_custom_resnet18": {
+    "art_painting": 79.5,
+    "cartoon": 72.8,
+    "photo": 95.5,
+    "sketch": 65.2,
+    "average": 78.3
+  },
+  "train_custom_resnet50": {
+    "art_painting": 82.8,
+    "cartoon": 74.3,
+    "photo": 96.3,
+    "sketch": 72.2,
+    "average": 81.4
+  },
+  "test_tta_on_trained_custom_resnet18": {
+    "art_painting": 79.5,
+    "cartoon": 74.1,
+    "photo": 95.7,
+    "sketch": 65.1,
+    "average": 78.6
+  },
+  "test_tta_on_trained_custom_resnet50": {
+    "art_painting": 82.7,
+    "cartoon": 75.9,
+    "photo": 96.6,
+    "sketch": 73.4,
+    "average": 82.2
+  },
+  "test_tta_on_trained_mvdg_resnet18": {
+    "art_painting": 80.0,
+    "cartoon": 77.9,
+    "photo": 95.2,
+    "sketch": 75.7,
+    "average": 82.2
+  },
+  "test_tta_on_trained_mvdg_resnet50": {
+    "art_painting": 83.5,
+    "cartoon": 80.8,
+    "photo": 96.2,
+    "sketch": 75.4,
+    "average": 84.0
+  },
+  "tent_resnet50": {
+    "art_painting": 84.0,
+    "cartoon": 74.4,
+    "photo": 97.6,
+    "sketch": 70.6,
+    "average": 81.7
+  },
+  "tent_custom_tta_resnet50": {
+    "art_painting": 82.9,
+    "cartoon": 75.5,
+    "photo": 97.6,
+    "sketch": 73.0,
+    "average": 82.3
+  }
+}

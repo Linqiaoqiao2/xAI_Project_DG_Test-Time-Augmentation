@@ -1,0 +1,28 @@
+experiment_name: baseline_resnet50_npt
+seed: [42, 2025, 123]
+device: cuda
+output_dir: results/baseline/resnet50_npt/
+
+model:
+  name: resnet50
+  pretrained: false
+  num_classes: 7
+
+data:
+  dataset: PACS
+  dataset_root: data/kfold
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 32
+  num_workers: 4
+  val_split: 0.15
+  categories: ['dog', 'elephant', 'giraffe', 'guitar', 'horse', 'house', 'person']
+
+train:
+  epochs: 40
+  optimizer: Adam
+  lr: 0.00003
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+
+eval:
+  metric: accuracy

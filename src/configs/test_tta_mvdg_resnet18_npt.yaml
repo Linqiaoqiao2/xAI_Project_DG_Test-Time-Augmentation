@@ -1,0 +1,23 @@
+experiment_name: test_tta_mvdg_resnet18_npt
+seed: [42, 2025, 123]
+device: cuda
+eval_only: true
+tta_strategy: mvdg
+
+model:
+  name: resnet18
+  pretrained: false
+  num_classes: 7
+  checkpoint_dir: checkpoints/resnet18_nonpretrained  # relative path to non-pretrained model checkpoints
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # relative path to PACS dataset
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 32
+  num_workers: 4
+
+tta:
+  transforms: ["random_resized_crop", "horizontal_flip"]
+  fusion: mean_logits_softmax
+  views: 32

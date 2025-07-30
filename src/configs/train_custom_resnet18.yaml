@@ -1,0 +1,34 @@
+experiment_name: train_custom_resnet18
+train_aug: custom
+seed: [42, 123, 2025]
+device: cuda
+output_dir: results/train_aug/resnet18_custom/
+
+model:
+  name: resnet18
+  pretrained: true
+  num_classes: 7
+
+data:
+  dataset: PACS
+  dataset_root: data/kfold
+  source_domains: ["cartoon", "photo", "sketch"]
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 32
+  num_workers: 4
+  val_split: 0.15
+  categories: ['dog', 'elephant', 'giraffe', 'guitar', 'horse', 'house', 'person']
+
+train:
+  epochs: 30
+  optimizer: Adam
+  lr: 3e-5
+  weight_decay: 1e-4
+  early_stopping_patience: 5
+
+augmentation:
+  strategy: custom
+  transforms: ["resize", "horizontal_flip", "rotation"]
+
+eval:
+  metric: accuracy

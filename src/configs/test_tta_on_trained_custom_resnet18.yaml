@@ -1,0 +1,26 @@
+experiment_name: test_tta_on_trained_custom_resnet18
+seed: [42, 123, 2025]
+device: cuda
+eval_only: true
+tta_strategy: custom
+
+model:
+  name: resnet18
+  pretrained: true
+  num_classes: 7
+  checkpoint_dir: checkpoints/resnet18_custom_aug  # relative path to custom-augmented pretrained model
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # relative path to dataset
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 16
+  num_workers: 4
+
+tta:
+  transforms: ["resize", "horizontal_flip", "rotation"]
+  fusion: mean_logits_softmax
+  views: 3
+
+eval:
+  metric: accuracy

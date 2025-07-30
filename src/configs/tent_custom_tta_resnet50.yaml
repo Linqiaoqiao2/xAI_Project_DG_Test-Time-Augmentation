@@ -1,0 +1,43 @@
+experiment_name: tent_custom_tta_resnet50
+mode: test_time_adaptation
+
+model:
+  architecture: resnet50
+  pretrained: true
+  checkpoint_path: checkpoints/resnet50_baseline_pretrained  # relative path to baseline model
+  num_classes: 7
+
+tta_strategy: custom
+custom_tta:
+  transforms:
+    - Resize + Normalize
+    - HorizontalFlip
+    - RandomRotation(degrees=15)
+  fusion: mean_logits_softmax_argmax
+
+adaptation_method: tent
+tent:
+  optimizer: Adam
+  lr: 1e-4
+  momentum: 0.9
+  weight_decay: 0.0
+  steps_per_batch: 1
+  reset_bn_stats: true
+  update_bn_only: true
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # relative path to dataset root
+  domains: ["art_painting", "cartoon", "photo", "sketch"]
+  categories: ['dog', 'elephant', 'giraffe', 'guitar', 'horse', 'house', 'person']
+  batch_size: 32
+  num_workers: 4
+  transforms:
+    type: Identity
+
+seeds: [42, 123, 2025]
+
+output:
+  save_dir: results/tent_custom_tta_resnet50  # relative path to output directory
+  save_json: results/tent_custom_tta_resnet50/metrics.json
+  save_plot: results/tent_custom_tta_resnet50/metrics.png

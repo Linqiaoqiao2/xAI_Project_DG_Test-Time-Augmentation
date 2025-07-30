@@ -1,0 +1,23 @@
+experiment_name: test_tta_custom_resnet50_npt
+seed: [42, 123, 2025]
+device: cuda
+eval_only: true
+tta_strategy: custom
+
+model:
+  name: resnet50
+  pretrained: false
+  num_classes: 7
+  checkpoint_dir: checkpoints/resnet50_nonpretrained  # relative path to non-pretrained checkpoints
+
+data:
+  dataset: PACS
+  data_root: data/PACS  # recommended relative path to dataset
+  target_domains: ["art_painting", "cartoon", "photo", "sketch"]
+  batch_size: 32
+  num_workers: 4
+
+tta:
+  transforms: ["resize", "horizontal_flip", "rotation"]
+  fusion: mean_logits_softmax
+  views: 3
